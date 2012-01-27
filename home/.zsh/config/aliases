@@ -15,4 +15,4 @@ alias testall='rake spec:integration'
 alias test='rake spec'
 alias gs='git stash'
 alias gsp='git stash pop'
-#/*alias v='mvim'*/
+alias v='mvim'
