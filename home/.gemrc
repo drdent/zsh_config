@@ -4,7 +4,7 @@ gem: --no-ri --no-rdoc
 :bulk_threshold: 1000
 install: --env-shebang
 :sources: 
-- http://gems.blau.de
+- http://gems.hh.blau.de
 - http://gemcache.hh.blau.de
 - http://gems.github.com
 - http://rubygems.org/
