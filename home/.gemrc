@@ -6,8 +6,8 @@ install: --env-shebang
 :sources: 
 - http://gems.hh.blau.de
 - http://gemcache.hh.blau.de
-- http://gems.github.com
 - http://rubygems.org/
+- http://gems.github.com
 :backtrace: false
 update: --env-shebang
 :verbose: true
