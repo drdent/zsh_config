@@ -11,4 +11,4 @@ install: --env-shebang
 :backtrace: false
 update: --env-shebang
 :verbose: true
-:benchmark: false
+:benchmark: true
