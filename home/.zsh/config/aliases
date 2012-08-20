@@ -9,13 +9,16 @@ alias pluto='ssh deploy@pluto'
 alias primus='ssh deploy@primus'
 alias tirpitz='ssh deploy@tirpitz'
 alias titanic='ssh deploy@titanic'
-
 alias ivy='ssh ivy@ivy'
+
 alias test_int='rake spec:integration'
 alias testall='rake spec:integration'
 alias test='rake spec'
+
+alias gpr='git pull --rebase'
 alias gs='git stash'
 alias gsp='git stash pop'
+
 alias v='mvim'
 alias vi='mvim'
 alias vim='mvim'
