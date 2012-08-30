@@ -4,6 +4,18 @@ rc() { bundle exec rails c }
 # Rails server
 rs() { bundle exec rails s }
 
+catcher() {
+  grep -q -e "catcher.*path" Gemfile
+  if [ "$?" -eq "1" ]; then
+    sed -i "" "s/catcher\(.*\)/catcher\1, :path => '..\/catcher'/" Gemfile
+    echo "LOCAL CATCHER"
+  else
+    sed -i "" "s/catcher\(.*\), :path.*/catcher\1/" Gemfile
+    echo "GEM CATCHER"
+  fi
+  bundle
+}
+
 # ps + grep
 psg() { ps auxww | grep $1 }
 
