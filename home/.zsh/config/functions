@@ -110,3 +110,7 @@ switch() {
 
   svn switch --ignore-ancestry svn://svn/$project_name/$branch
 }
+
+prod() {
+  ssh guest@$1$2.prod.blau.de
+}
