@@ -12,6 +12,7 @@ echo "${ccred}====================="
     echo "PUBLIC ASSETS EXISTS!"
     echo "=====================${ccend}"
   fi
+rm -rf tmp/cache
 bundle exec rails s
 }
 
