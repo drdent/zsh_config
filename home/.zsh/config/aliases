@@ -3,7 +3,7 @@ alias ..='cd ..'
 
 alias emil='ssh deploy@emil'
 alias goya='ssh deploy@goya'
-alias metula='ssh deploy@pmetula'
+alias metula='ssh deploy@metula'
 alias pamir='ssh deploy@pamir'
 alias pluto='ssh deploy@pluto'
 alias primus='ssh deploy@primus'
