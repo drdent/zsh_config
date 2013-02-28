@@ -1,6 +1,8 @@
+#bash
 alias ll='ls -la'
 alias ..='cd ..'
 
+#servers
 alias emil='ssh deploy@emil'
 alias goya='ssh deploy@goya'
 alias metula='ssh deploy@metula'
@@ -12,14 +14,21 @@ alias titanic='ssh deploy@titanic'
 alias kursk='ssh deploy@kursk'
 alias ivy='ssh ivy@ivy'
 
+#rails tests
 alias test_int='rake spec:integration'
 alias testall='rake spec:integration'
 alias test='rake spec'
 
+#git
 alias gpr='git pull --rebase'
 alias gs='git stash'
 alias gsp='git stash pop'
+alias ts='tig status'
 
+#vim
 alias v='mvim'
 alias vi='mvim'
 alias vim='mvim'
+
+#Java
+alias bcp='buildr clean package'
