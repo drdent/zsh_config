@@ -4,6 +4,7 @@ export AUTOFEATURE=true #Test Cucumber
 export LESS="-mNR" #Line-numbers and ASCII-Colors in less
 export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a iTerm"'
 export LC_ALL="en_US.UTF-8"
+export MAVEN_OPTS="-Xms512m -Xmx1024m -XX:MaxPermSize=768m -XX:+CMSClassUnloadingEnabled"
 
 # Show `time` output for any command that takes longer than 1 second of CPU time
 export REPORTTIME=1
