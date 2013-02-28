@@ -47,6 +47,9 @@ if [ -f "/etc/hosts" ]; then
 fi
 hosts=( $hosts $etchosts $sshhosts)
 
+# autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
 # completion engine additions
 # keep cvs and *~ files out
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS' '(|*/)*\~'
