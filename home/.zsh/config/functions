@@ -51,6 +51,16 @@ b() {
   bundle "$@"
 }
 
+# run rspec via spring
+rspec2() {
+  if [ -f ./bin/rspec ]; then
+    bin/rspec "$@"
+  else
+    echo "You should really 'gem install spring && spring binstub rspec' here"
+    bundle exec rspec "$@"
+  fi
+}
+
 # rename *.txt txt t2t
 # a.txt => a.t2t
 rename() {
