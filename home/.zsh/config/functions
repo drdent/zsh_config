@@ -17,17 +17,41 @@ bundle
 bundle exec rails s
 }
 
+# "catcher" wechselt zwischen LOKALEM und GEM catche
+# "catcher ++" erhöht die versionsnummer um eins
 catcher() {
-  grep -q -e "catcher.*path" Gemfile
-  if [ "$?" -eq "1" ]; then
-    sed -i "" "s/catcher\(.*\)/catcher\1, :path => '..\/catcher'/" Gemfile
-    echo "LOCAL CATCHER"
-    bundle
-    rs
+  if [ "$1" == "++" ]; then
+    if [ -e "catcher.gemspec" ]; then
+      echo "in catcher:"
+      CURRENTVERSION=`grep version catcher.gemspec| cut -d "." -f 3 | sed "s/\"//"`
+      NEXTVERSION=`calc -p $CURRENTVERSION + 1`
+      echo "Bumping gem version from $CURRENTVERSION to $NEXTVERSION"
+      sed -i "" "s/\(.*\.version.*\)\.\(.*\)\"/\1.$NEXTVERSION\"/" catcher.gemspec
+      echo "adding catcher.gemspec..."
+      git add catcher.gemspec
+      echo "make commit with message: v$NEXTVERSION..."
+      git ci -am "v$NEXTVERSION"
+    else
+      echo "no in catcher:"
+      echo "bundle update catcher"
+      bundle update catcher
+      echo "add Gemfile.lock to git..."
+      git add Gemfile.lock
+      echo "make a commit..."
+      git ci -am "catcher ++"
+    fi
   else
-    sed -i "" "s/catcher\(.*\), :path.*/catcher\1/" Gemfile
-    echo "GEM CATCHER"
-    bundle
+    grep -q -e "catcher.*path" Gemfile
+    if [ "$?" -eq "1" ]; then
+      sed -i "" "s/catcher\(.*\)/catcher\1, :path => '..\/catcher'/" Gemfile
+      echo "LOCAL CATCHER"
+      bundle
+      rs
+    else
+      sed -i "" "s/catcher\(.*\), :path.*/catcher\1/" Gemfile
+      echo "GEM CATCHER"
+      bundle
+    fi
   fi
 }
 
