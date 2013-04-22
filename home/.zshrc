@@ -48,7 +48,9 @@ fi
 hosts=( $hosts $etchosts $sshhosts)
 
 # autojump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+if [ $commands[brew] -a -f `brew --prefix`/etc/autojump.zsh ]; then # mac os x with brew
+    . `brew --prefix`/etc/autojump.zsh
+fi
 
 # completion engine additions
 # keep cvs and *~ files out
