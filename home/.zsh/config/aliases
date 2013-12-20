@@ -41,4 +41,4 @@ alias bch='buildr clean hotdeploy'
 
 #Maven
 alias mvn_test='maven clean install'
-alias mvn_install='mvn clean install -Dmaven.test.skip=true'
+alias mvn_install='mvn clean install -Dmaven.test.skip=true -U -Djarsigner.skip=true'
