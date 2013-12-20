@@ -37,6 +37,7 @@ alias vim='mvim'
 
 #Java
 alias bcp='buildr clean package'
+alias bch='buildr clean hotdeploy'
 
 #Maven
 alias mvn_test='maven clean install'
