@@ -26,6 +26,8 @@ alias test='rake spec'
 alias gpr='git pull --rebase'
 alias gs='git stash'
 alias gsp='git stash pop'
+alias grh='git reset --hard'
+
 alias ts='tig status'
 
 #vim
