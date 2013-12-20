@@ -3,16 +3,19 @@ alias ll='ls -la'
 alias ..='cd ..'
 
 #servers
+alias bamboo='ssh bamboo@bamboo'
 alias emil='ssh deploy@emil'
 alias goya='ssh deploy@goya'
+alias hindenburg='ssh deploy@hindenburg'
+alias ivy='ssh ivy@ivy'
+alias kursk='ssh deploy@kursk'
+alias leona='ssh deploy@leona'
 alias metula='ssh deploy@metula'
 alias pamir='ssh deploy@pamir'
 alias pluto='ssh deploy@pluto'
 alias primus='ssh deploy@primus'
 alias tirpitz='ssh deploy@tirpitz'
 alias titanic='ssh deploy@titanic'
-alias kursk='ssh deploy@kursk'
-alias ivy='ssh ivy@ivy'
 
 #rails tests
 alias test_int='rake spec:integration'
