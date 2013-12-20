@@ -149,5 +149,5 @@ switch() {
 }
 
 prod() {
-  ssh guest@$1$2.prod.blau.de
+  ssh guest@$1.prod.blau.de
 }
