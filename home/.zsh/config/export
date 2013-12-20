@@ -14,6 +14,9 @@ export ARCHFLAGS="-arch x86_64"
 
 # Manpager with ascii-sequences
 export MANPAGER=more
+
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin/jshint:$PATH
+
 #orcale instant client
 export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_10_2"  
 export NLS_LANG="AMERICAN_AMERICA.UTF8"  
