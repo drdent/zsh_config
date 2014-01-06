@@ -23,7 +23,3 @@ export NLS_LANG="AMERICAN_AMERICA.UTF8"
 #export SQLPATH="/usr/local/oracle/instantclient_10_2"  
 #export TNS_ADMIN="/usr/local/oracle/network/admin"  
 #export PATH=$PATH:$DYLD_LIBRARY_PATH
-
-# Ruby Stuff
-export RUBY_GC_MALLOC_LIMIT=90000000
-export RUBY_FREE_MIN=200000
