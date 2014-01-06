@@ -1,14 +1,15 @@
---- 
-gem: --no-ri --no-rdoc
-:update_sources: true
+---
+:backtrace: false
+:benchmark: true
 :bulk_threshold: 1000
-install: --env-shebang
-:sources: 
+:sources:
 - http://gems.hh.blau.de
 - http://gemcache.hh.blau.de
 - http://rubygems.org/
 - http://gems.github.com
-:backtrace: false
-update: --env-shebang
+- http://rubygems.org
+:update_sources: true
 :verbose: true
-:benchmark: true
+gem: --no-ri --no-rdoc
+install: --env-shebang
+update: --env-shebang
