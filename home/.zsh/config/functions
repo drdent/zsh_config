@@ -155,3 +155,16 @@ prod() {
 share() {
 echo "SERVING `pwd` ON http://`ifconfig -v en0 inet | grep inet | cut -d " " -f 2`:9090/" && ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => 9090, :DocumentRoot => Dir.pwd); trap(\"INT\") { s.shutdown }; s.start"  
 }
+
+use_host() {
+    SYSTEMTEST_PROPERTIES_FILE=~/.systemtest.properties
+    current_host_name=`grep "platform_host=" $SYSTEMTEST_PROPERTIES_FILE`
+    new_host_name=""
+    if [ "$1" ]; then
+        new_host_name="$1"
+    else
+     echo -e "########################################################\nNo host name was given, i will set pluto per default!\n########################################################"
+     new_host_name="pluto"
+    fi
+    sed -ie "s/$current_host_name/platform_host=$new_host_name/" $SYSTEMTEST_PROPERTIES_FILE
+}
