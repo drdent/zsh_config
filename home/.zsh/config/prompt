@@ -93,5 +93,10 @@ rvm_prompt_info() {
   echo "$ruby_version"
 }
 
-RPROMPT='$(rvm_prompt_info)'
+# Show rbenv ruby version
+rbenv_prompt_info() {
+  ruby_version=$(rbenv version-name)
+  echo "$ruby_version"
+}
+RPROMPT='$(rbenv_prompt_info)'
 
