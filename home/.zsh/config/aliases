@@ -18,11 +18,6 @@ alias primus='ssh deploy@primus'
 alias tirpitz='ssh deploy@tirpitz'
 alias titanic='ssh deploy@titanic'
 
-#rails tests
-alias test_int='rake spec:integration'
-alias testall='rake spec:integration'
-alias test='rake spec'
-
 #git
 alias gpr='git pull --rebase'
 alias gs='git stash'
