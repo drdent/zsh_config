@@ -30,10 +30,6 @@ alias v='mvim'
 alias vi='mvim'
 alias vim='mvim'
 
-#Java
-alias bcp='buildr clean package'
-alias bch='buildr clean hotdeploy'
-
 #Maven
 alias mvn_test='mvn clean install'
 alias mvn_install='mvn clean install -Dmaven.test.skip=true -U -Djarsigner.skip=true'
