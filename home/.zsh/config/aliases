@@ -31,7 +31,7 @@ alias vi='mvim'
 alias vim='mvim'
 
 #Maven
-alias mvn_test='mvn clean install'
+alias mci='mvn clean install'
 alias mvn_install='mvn clean install -Dmaven.test.skip=true -U -Djarsigner.skip=true'
 
 alias serve='echo "SERVING `pwd` ON http://`ifconfig -v en0 inet | grep inet | cut -d " " -f 2`:9090/" && ruby -run -e httpd . -p9090'
