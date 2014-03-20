@@ -3,6 +3,7 @@ alias ll='ls -la'
 alias ..='cd ..'
 
 #servers
+alias apollo='ssh deploy@apollo'
 alias bamboo='ssh bamboo@bamboo'
 alias emil='ssh deploy@emil'
 alias goya='ssh deploy@goya'
