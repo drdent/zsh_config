@@ -24,8 +24,6 @@ alias gs='git stash'
 alias gsp='git stash pop'
 alias grh='git reset --hard'
 
-alias ts='tig status'
-
 #vim
 alias v='mvim'
 alias vi='mvim'
