@@ -5,6 +5,7 @@ alias ..='cd ..'
 #servers
 alias apollo='ssh deploy@apollo'
 alias bamboo='ssh bamboo@bamboo'
+alias chili='ssh deploy@chili'
 alias emil='ssh deploy@emil'
 alias goya='ssh deploy@goya'
 alias hindenburg='ssh deploy@hindenburg'
