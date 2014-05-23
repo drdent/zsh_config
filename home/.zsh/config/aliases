@@ -2,6 +2,8 @@
 alias ll='ls -la'
 alias ..='cd ..'
 
+alias open_ports='lsof -i -P | grep -i LISTEN'
+
 #servers
 alias apollo='ssh deploy@apollo'
 alias bamboo='ssh bamboo@bamboo'
