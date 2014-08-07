@@ -38,6 +38,24 @@ bump() {
   fi
 }
 
+gitc() {
+  echo "using branch_name: $1"
+  echo "using commit_hash: $2"
+
+  branch_name="$1"
+  commit_hash="$2"
+
+  echo "checkout branch..."
+  git checkout $branch_name
+
+  echo "cherry-pick"
+  git cherry-pick $commit_hash
+
+  echo "push..."
+  gp
+  echo "done!"
+}
+
 # ps + grep
 psg() { ps auxww | grep $1 }
 
