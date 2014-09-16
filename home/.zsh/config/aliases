@@ -18,6 +18,7 @@ alias metula='ssh deploy@metula'
 alias pamir='ssh deploy@pamir'
 alias pluto='ssh deploy@pluto'
 alias primus='ssh deploy@primus'
+alias team2='ssh deploy@team2'
 alias tirpitz='ssh deploy@tirpitz'
 alias titanic='ssh deploy@titanic'
 
