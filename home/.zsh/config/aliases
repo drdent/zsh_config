@@ -30,7 +30,8 @@ alias gs='git stash'
 alias gsp='git stash pop'
 alias grh='git reset --hard'
 alias grc='git rebase --continue'
-alias gp='git pull --rebase; git push'
+alias gp='gpr; git push'
+alias gitup='gs && gpr && gsp'
 
 #vim
 alias v='mvim'
