@@ -4,7 +4,6 @@ ccyellow=$(echo -e "\033[0;33m")
 ccend=$(echo -e "\033[0m")
 
 rc() {
-  bundle
   bundle exec rails c
 }
 
