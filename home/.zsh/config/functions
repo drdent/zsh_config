@@ -38,21 +38,27 @@ bump() {
 }
 
 gitc() {
-  echo "using branch_name: $1"
-  echo "using commit_hash: $2"
+  if [ "$1" ] && [ "$2" ]; then
+    echo "using branch_name: $1"
+    echo "using commit_hash: $2"
 
-  branch_name="$1"
-  commit_hash="$2"
+    branch_name="$1"
+    commit_hash="$2"
 
-  echo "checkout branch..."
-  git checkout $branch_name
+    echo "checkout branch..."
+    git checkout $branch_name
 
-  echo "cherry-pick"
-  git cherry-pick $commit_hash
+    echo "cherry-pick"
+    git cherry-pick $commit_hash
 
-  echo "push..."
-  gp
-  echo "done!"
+    echo "push..."
+    gp
+    echo "done!"
+    git co master
+  else
+    echo "############## USAGE ###############"
+    echo "gitc <branch_name> <commit_hash>"
+  fi
 }
 
 # ps + grep
