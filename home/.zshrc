@@ -50,6 +50,8 @@ hosts=( $hosts $etchosts $sshhosts)
 if [ $commands[brew] -a -f `brew --prefix`/etc/autojump.zsh ]; then # mac os x with brew
     . `brew --prefix`/etc/autojump.zsh
 fi
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
 
 # completion engine additions
 # keep cvs and *~ files out
