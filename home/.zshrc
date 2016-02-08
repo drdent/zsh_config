@@ -87,3 +87,6 @@ export PATH=/opt/subversion/bin:$PATH
 #rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+
+# Docker
+eval "$(docker-machine env default)"
