@@ -6,7 +6,7 @@ alias open_ports='lsof -i -P | grep -i LISTEN'
 
 #servers
 alias apollo='ssh deploy@apollo'
-alias bamboo='ssh bamboo@bamboo'
+alias bamboo='ssh bamboo@bambooserver1.hh.blau.de'
 alias chili='ssh deploy@chili'
 alias emil='ssh deploy@emil'
 alias goya='ssh deploy@goya'
@@ -23,6 +23,7 @@ alias team6='ssh deploy@team6'
 alias team11='ssh deploy@team11'
 alias tirpitz='ssh deploy@tirpitz'
 alias titanic='ssh deploy@titanic'
+alias ci25='ssh deploy@ci25'
 
 #git
 alias gpr='git pull --rebase'
@@ -45,3 +46,6 @@ alias mvn_hotdeploy='mvn clean package hotdeploy:hotdeploy'
 alias mvn_install='mvn clean install -Dmaven.test.skip=true -U -Djarsigner.skip=true'
 
 alias serve='echo "SERVING `pwd` ON http://`ifconfig -v en0 inet | grep inet | cut -d " " -f 2`:9090/" && ruby -run -e httpd . -p9090'
+
+#rspec
+alias next='rspec --next-failure'
