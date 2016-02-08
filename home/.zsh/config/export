@@ -9,19 +9,19 @@ export MAVEN_OPTS='-Xms512m -Xmx1024m -XX:MaxPermSize=768m -XX:+CMSClassUnloadin
 # Show `time` output for any command that takes longer than 1 second of CPU time
 export REPORTTIME=1
 
-# Need this to make rvm + homebrew happy
-export ARCHFLAGS="-arch x86_64"
-
 # Manpager with ascii-sequences
 export MANPAGER=more
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin/jshint:$PATH
 
 #orcale instant client
-#export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_11_2"
+export DYLD_LIBRARY_PATH="/usr/local/oracle/instantclient_11_2"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"  
 #export SQLPATH="/usr/local/oracle/instantclient_11_2"  
 #export TNS_ADMIN="/usr/local/oracle/network/admin"  
-#export PATH=$PATH:$DYLD_LIBRARY_PATH
+export PATH=$PATH:$DYLD_LIBRARY_PATH
 
 export CMS_CONTENT_PATH=/Users/andrejahrling/repositories/svn/cmsContent/
+
+# Docker
+export DOCKER_OPTS="--add-host mucsggit02.sg.de.pri.o2.com:10.97.192.239 --dns 10.97.192.3 --dns-search sg.de.pri.o2.com"
