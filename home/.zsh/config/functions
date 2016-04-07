@@ -3,10 +3,6 @@ ccred=$(echo -e "\033[0;31m")
 ccyellow=$(echo -e "\033[0;33m")
 ccend=$(echo -e "\033[0m")
 
-rc() {
-  bundle exec rails c
-}
-
 # Rails server
 rs() {
   if [[ -d public/assets ]]; then
