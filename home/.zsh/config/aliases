@@ -40,4 +40,4 @@ alias serve='echo "SERVING `pwd` ON http://`ifconfig -v en0 inet | grep inet | c
 alias next='rspec --next-failure'
 
 #rails
-alias rc='pry -r ./config/environment'
+alias rc='bundle exec pry -r ./config/environment'
