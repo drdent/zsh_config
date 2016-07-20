@@ -15,13 +15,12 @@ alias tirpitz='ssh deploy@tirpitz'
 alias ci25='ssh deploy@ci25'
 
 #git
-alias gpr='git pull --rebase'
+alias gpr='git pull'
 alias gs='git stash'
 alias gsp='git stash pop'
 alias grh='git reset --hard'
 alias grc='git rebase --continue'
 alias gp='gpr; git push'
-alias gitup='gs && gpr && gsp'
 
 #vim
 alias v='mvim'
