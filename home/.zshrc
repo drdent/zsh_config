@@ -47,9 +47,7 @@ fi
 hosts=( $hosts $etchosts $sshhosts)
 
 # autojump
-if [ $commands[brew] -a -f `brew --prefix`/etc/autojump.zsh ]; then # mac os x with brew
-    . `brew --prefix`/etc/autojump.zsh
-fi
+export PATH=/usr/local/bin:$PATH
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 
