@@ -87,16 +87,15 @@ vcs_bracket() {
 
 PS1='%{$fg[cyan]%}%n%{$fg[green]%}:%(4~|...|)%2~%{$reset_color%}$(vcs_bracket)%(!.#.)%{$reset_color%}> '
 
-# Show RVM Gemset and ruby
-rvm_prompt_info() {
-  ruby_version=$(~/.rvm/bin/rvm-prompt 2> /dev/null) || return
-  echo "$ruby_version"
+# Display the running version ofthe intepreter in use
+function lang_prompt_info() {
+  #local lang_version
+
+  if [[ -d node_modules ]]; then
+    echo "Node $(nvm version | sed 's/v//')"
+  elif [[ -e Gemfile || -e Rakefile ]]; then
+    echo "Ruby $(rbenv version | sed 's/[ \t].*$//')"
+  fi
 }
 
-# Show rbenv ruby version
-rbenv_prompt_info() {
-  ruby_version=$(rbenv version-name)
-  echo "$ruby_version"
-}
-RPROMPT='$(rbenv_prompt_info)'
-
+RPROMPT='%{$fg_no_bold[cyan]%}$(lang_prompt_info)%{$reset_color%}'

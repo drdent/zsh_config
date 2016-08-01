@@ -25,3 +25,7 @@ export CMS_CONTENT_PATH=/Users/andrejahrling/repositories/svn/cmsContent/
 
 # Docker
 export DOCKER_OPTS="--add-host mucsggit02.sg.de.pri.o2.com:10.97.192.239 --dns 10.97.192.3 --dns-search sg.de.pri.o2.com"
+
+# NVM (Node)
+export NVM_DIR="$HOME/.nvm"
+. "$(brew --prefix nvm)/nvm.sh"
