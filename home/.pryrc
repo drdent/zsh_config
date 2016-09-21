@@ -2,6 +2,7 @@
 # Configuration for Pry
 #
 Pry.config.editor = "mvim -f"
+Pry.config.history.file = ".pry_history"
 
 Pry.config.commands.alias_command "c", "continue"
 Pry.config.commands.alias_command "s", "step"
