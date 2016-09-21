@@ -11,7 +11,7 @@ alias team2='ssh deploy@team2.hh.blau.de'
 alias team5='ssh deploy@team5.hh.blau.de'
 alias team6='ssh deploy@team6'
 alias team11='ssh deploy@team11'
-alias tirpitz='ssh deploy@tirpitz'
+alias tirpitz='ssh deploy@tirpitz.hh.blau.de'
 alias ci25='ssh deploy@ci25'
 
 #git
