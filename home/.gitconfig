@@ -1,0 +1,19 @@
+[andre]
+	jaehrling = André Jährling
+[user]
+	email = andre.jaehrling@telefonica.com
+	name = André Jährling
+[alias]
+	co = checkout
+	st = status
+	ci = commit -v
+[push]
+	default = simple
+[core]
+  autocrlf = input
+  untrackedCache = true
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[pull]
+  rebase = true
+[rebase]
+	autoStash = true
