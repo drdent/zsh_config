@@ -10,7 +10,7 @@ alias ivy='ssh ivy@ivy'
 alias team2='ssh deploy@team2.hh.blau.de'
 alias team5='ssh deploy@team5.hh.blau.de'
 alias team6='ssh deploy@team6'
-alias team13='ssh deploy@team13'
+alias team13='ssh deploy@team13.hh.blau.de'
 alias tirpitz='ssh deploy@tirpitz.hh.blau.de'
 alias ci25='ssh deploy@ci25'
 
