@@ -15,24 +15,6 @@ bundle
 bundle exec rails s -b 0.0.0.0
 }
 
-# bump the gem version and push
-bump() {
-  POS=`grep version *.gemspec | cut -d "=" -f 2 | grep -o "\." | wc -l| awk {'print $1+2'}`
-  CURRENTVERSION=`grep version *.gemspec| cut -d "." -f ${POS} | sed "s/[\"']//"`
-  NEXTVERSION=`calc -p $CURRENTVERSION + 1`
-  PROJECTNAME=`ls -1 *.gemspec | cut -d "." -f 1`
-  echo "Bumping gem version of $PROJECTNAME from $CURRENTVERSION to $NEXTVERSION"
-  sed -i "" "s/\(.*\.version.*\)\.\(.*\)\([\"']\)/\1.$NEXTVERSION\3/" *.gemspec
-  CHANGED_FILES=`git status --porcelain | wc -l | awk {'print $1'}`
-  if [ "$CHANGED_FILES" == "1" ]; then
-    echo "adding $PROJECTNAME.gemspec..."
-    git add *.gemspec
-    MESSAGE="updated $PROJECTNAME version to .$NEXTVERSION"
-    echo "make commit with message: $MESSAGE"
-    git ci -m $MESSAGE
-  fi
-}
-
 gitc() {
   if [ "$1" ] && [ "$2" ]; then
     echo "using branch_name: $1"
@@ -56,9 +38,6 @@ gitc() {
     echo "gitc <branch_name> <commit_hash>"
   fi
 }
-
-# ps + grep
-psg() { ps auxww | grep $1 }
 
 # Start pry (and load rails if available)
 p() {
@@ -87,40 +66,6 @@ rename() {
 
 f() {
   find . -name "$1" | grep -v ".svn"
-}
-
-#
-# quick SVN switch branch
-#
-switch() {
-  project_name=`svn info | grep URL | cut -d "/" -f 4`
-
-  if [[ "$0" != "0" ]]; then
-    echo "================="
-    echo "Not a SVN project"
-    echo "================="
-    return
-  fi
-
-  clean=$(svn status | wc -l)
-
-  if [[ "$clean" -gt "0" ]]; then
-    echo "=================================================================================="
-    echo "The current active branch isn't clean. Commit or revert before switching branches."
-    echo "=================================================================================="
-    return
-  fi
-
-  branch=$1
-  if [[ $branch == "" ]]; then
-    branch="trunk"
-  else
-    branch="branches/$branch"
-  fi
-
-  echo "switching '$project_name' to $branch"
-
-  svn switch --ignore-ancestry svn://svn/$project_name/$branch
 }
 
 prod() {
