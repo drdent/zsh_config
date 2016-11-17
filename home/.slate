@@ -1,0 +1,24 @@
+# https://github.com/jigish/slate
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+bind 0:cmd;shift       corner top-left  resize:screenSizeX;screenSizeY
+bind 1:cmd;shift       corner top-left  resize:screenSizeX/3*2;screenSizeY
+bind 2:cmd;shift       corner top-right resize:screenSizeX/3;screenSizeY
+bind 3:cmd;shift       corner top-left  resize:screenSizeX/2;screenSizeY
+bind 4:cmd;shift       corner top-right resize:screenSizeX/2;screenSizeY
+
+# Work @office layout
+# left orientation
+layout office 'Firefox' corner top-left resize:screenSizeX/3*2;screenSizeY
+layout office 'MacVim' corner top-left resize:screenSizeX/3*2;screenSizeY
+layout office 'Microsoft Outlook' corner top-left resize:screenSizeX/3*2;screenSizeY
+
+# right orientation
+layout office 'Slack' corner top-right resize:screenSizeX/3;screenSizeY
+layout office 'iTerm2' corner top-right resize:screenSizeX/3;screenSizeY
+
+default office resolutions:2560x1440;2560x1440
+bind 9:cmd;shift layout office
+bind 0:cmd;shift relaunch
