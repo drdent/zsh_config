@@ -78,10 +78,6 @@ for f in ~/.zsh/private/*; do source $f; done
 
 export PATH=/opt/subversion/bin:$PATH
 
-#rvm
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
-
 #rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
