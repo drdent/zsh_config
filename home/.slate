@@ -14,6 +14,7 @@ bind 4:cmd;shift       corner top-right resize:screenSizeX/2;screenSizeY
 layout office 'Firefox' corner top-left resize:screenSizeX/3*2;screenSizeY
 layout office 'MacVim' corner top-left resize:screenSizeX/3*2;screenSizeY
 layout office 'Microsoft Outlook' corner top-left resize:screenSizeX/3*2;screenSizeY
+layout office 'IntelliJ IDEA' corner top-left resize:screenSizeX/3*2;screenSizeY
 
 # right orientation
 layout office 'Slack' corner top-right resize:screenSizeX/3;screenSizeY
