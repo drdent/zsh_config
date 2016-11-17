@@ -29,3 +29,5 @@ export DOCKER_OPTS="--add-host mucsggit02.sg.de.pri.o2.com:10.97.192.239 --dns 1
 # NVM (Node)
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+
+export HOMEBREW_INSTALL_BADGE="🛠"
