@@ -1,14 +1,8 @@
+# Slate Config
 # https://github.com/jigish/slate
 config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
-
-bind 0:cmd;shift corner top-left  resize:screenSizeX;screenSizeY #full size
-bind 1:cmd;shift corner top-left  resize:screenSizeX/3*2;screenSizeY #2/3 left
-bind 2:cmd;shift corner top-right resize:screenSizeX/3;screenSizeY # 1/3 right
-bind 3:cmd;shift corner top-left  resize:screenSizeX/2;screenSizeY # half left
-bind 4:cmd;shift corner top-right resize:screenSizeX/2;screenSizeY # half right
-bind 9:cmd;shift layout office #layout all
 
 # Work @office layout
 # left orientation
@@ -20,6 +14,14 @@ layout office 'IntelliJ IDEA' corner top-left resize:screenSizeX/3*2;screenSizeY
 # right orientation
 layout office 'Slack' corner top-right resize:screenSizeX/3;screenSizeY
 layout office 'iTerm2' corner top-right resize:screenSizeX/3;screenSizeY
+
+# Hotkeys
+bind 0:cmd;shift corner top-left  resize:screenSizeX;screenSizeY #full size
+bind 1:cmd;shift corner top-left  resize:screenSizeX/3*2;screenSizeY #2/3 left
+bind 2:cmd;shift corner top-right resize:screenSizeX/3;screenSizeY # 1/3 right
+bind 3:cmd;shift corner top-left  resize:screenSizeX/2;screenSizeY # half left
+bind 4:cmd;shift corner top-right resize:screenSizeX/2;screenSizeY # half right
+bind 9:cmd;shift layout office #layout all
 
 # load default layout on startup
 default office resolutions:2560x1440;2560x1440
