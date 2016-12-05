@@ -30,4 +30,13 @@ export DOCKER_OPTS="--add-host mucsggit02.sg.de.pri.o2.com:10.97.192.239 --dns 1
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
+# Homebrew
 export HOMEBREW_INSTALL_BADGE="🛠"
+
+# autojump
+export PATH=/usr/local/bin:$PATH
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+#rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi

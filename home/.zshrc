@@ -46,10 +46,6 @@ if [ -f "/etc/hosts" ]; then
 fi
 hosts=( $hosts $etchosts $sshhosts)
 
-# autojump
-export PATH=/usr/local/bin:$PATH
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
 
 # completion engine additions
 # keep cvs and *~ files out
@@ -75,9 +71,3 @@ stty stop undef
 # Includes
 for f in ~/.zsh/config/*; do source $f; done
 for f in ~/.zsh/private/*; do source $f; done
-
-export PATH=/opt/subversion/bin:$PATH
-
-#rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
