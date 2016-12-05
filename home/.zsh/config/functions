@@ -39,33 +39,8 @@ gitc() {
   fi
 }
 
-# Start pry (and load rails if available)
-p() {
-  if [ -f ./config/environment.rb ]; then
-    pry -r ./config/environment -r ~/.zsh/modules/pry/rails.rb $1 $2 $3
-  elif [ -f ./*.gemspec ]; then
-    gem=`ls *.gemspec | cut -d "." -f 1`
-    echo "Starting PRY with gem '$gem'"
-    pry -r ./lib/$gem.rb $1 $2 $3
-  else
-    pry
-  fi
-}
-
 b() {
   bundle "$@"
-}
-
-# rename *.txt txt t2t
-# a.txt => a.t2t
-rename() {
-  for f in $1; do 
-    mv "$f" "${f%$2}$3"
-  done
-}
-
-f() {
-  find . -name "$1" | grep -v ".svn"
 }
 
 prod() {
