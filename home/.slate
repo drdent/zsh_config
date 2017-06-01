@@ -5,14 +5,17 @@ config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
 # Work @office layout
-# left orientation
-layout office 'Firefox' corner top-left resize:screenSizeX/3*2;screenSizeY
-layout office 'MacVim' corner top-left resize:screenSizeX/3*2;screenSizeY
+## left screen
+layout office 'Firefox' corner top-left resize:screenSizeX;screenSizeY
 layout office 'Microsoft Outlook' corner top-left resize:screenSizeX/3*2;screenSizeY
-layout office 'IntelliJ IDEA' corner top-left resize:screenSizeX/3*2;screenSizeY
+layout office 'Mattermost' corner top-right resize:screenSizeX/3;screenSizeY
+
+## right screen
+# left orientation
+layout office 'MacVim' corner top-left resize:screenSizeX/3*2;screenSizeY
+layout office 'RubyMine' corner top-left resize:screenSizeX/3*2;screenSizeY
 
 # right orientation
-layout office 'Slack' corner top-right resize:screenSizeX/3;screenSizeY
 layout office 'iTerm2' corner top-right resize:screenSizeX/3;screenSizeY
 
 # Hotkeys
