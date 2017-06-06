@@ -15,6 +15,7 @@ bundle
 bundle exec rails s -b 0.0.0.0
 }
 
+# git cherry-pick from branch to another branch by using a commit hash
 gitc() {
   if [ "$1" ] && [ "$2" ]; then
     echo "using branch_name: $1"
