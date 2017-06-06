@@ -40,3 +40,6 @@ alias n='rspec --next-failure'
 
 #rails
 alias rc='bundle exec pry -r ./config/environment'
+
+# Docker
+alias docker-start='docker-machine start && docker-machine env && eval $(docker-machine env)'
