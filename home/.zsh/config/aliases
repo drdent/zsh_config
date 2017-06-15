@@ -43,3 +43,8 @@ alias rc='bundle exec pry -r ./config/environment'
 
 # Docker
 alias docker-start='docker-machine start && docker-machine env && eval $(docker-machine env)'
+alias dc='docker-compose'
+alias dce='docker-compose exec'
+alias dcu='docker-compose up'
+alias dce='docker-compose build'
+alias dm='docker-machine'
