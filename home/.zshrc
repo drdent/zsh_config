@@ -3,8 +3,9 @@
 # ----------------------------------------------------------------
 
 # crazy tab completion
-autoload -U compinit
-compinit
+#autoload -U compinit
+#compinit
+autoload -Uz compinit && compinit -i
 
 # crazy mad shit
 setopt auto_resume auto_cd auto_pushd pushd_to_home pushd_silent pushd_minus
@@ -46,7 +47,6 @@ if [ -f "/etc/hosts" ]; then
 fi
 hosts=( $hosts $etchosts $sshhosts)
 
-
 # completion engine additions
 # keep cvs and *~ files out
 zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS' '(|*/)*\~'
@@ -71,3 +71,5 @@ stty stop undef
 # Includes
 for f in ~/.zsh/config/*; do source $f; done
 for f in ~/.zsh/private/*; do source $f; done
+
+fpath=(~/.zsh/completion $fpath)
