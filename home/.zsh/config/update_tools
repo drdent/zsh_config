@@ -13,6 +13,6 @@ update_tools() {
 
   echo "${ccyellow}Update homebrew formulars...${ccend}"
   brew update
-  brew upgrade --all
+  brew upgrade
   brew cleanup
 }
