@@ -16,7 +16,7 @@ setopt nobeep extended_glob prompt_subst interactive_comments
 setopt list_types list_packed print_eight_bit nohup notify
 setopt print_exit_value
 unsetopt bgnice nomatch
-setopt NO_BG_NICE # don't nice background tasks
+setopt NO_BG_NICE #dont nice background tasks
 setopt NO_HUP
 setopt NO_LIST_BEEP
 setopt LOCAL_OPTIONS # allow functions to have local options
