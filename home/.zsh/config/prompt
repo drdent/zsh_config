@@ -91,10 +91,10 @@ PS1='%{$fg[cyan]%}%n%{$fg[green]%}:%(4~|...|)%2~%{$reset_color%}$(vcs_bracket)%(
 function lang_prompt_info() {
   #local lang_version
 
-  if [[ -d node_modules ]]; then
-    echo "Node $(nvm version | sed 's/v//')"
-  elif [[ -e Gemfile || -e Rakefile ]]; then
+  if [[ -e Gemfile || -e Rakefile ]]; then
     echo "Ruby $(rbenv version | sed 's/[ \t].*$//')"
+  elif [[ -d node_modules ]]; then
+    echo "Node $(nvm version | sed 's/v//')"
   fi
 }
 
