@@ -5,6 +5,7 @@
 :sources:
 - http://rubygems.org
 - http://gems.github.com
+- http://gems.webdev.wlw.de/
 :update_sources: true
 :verbose: true
 gem: --no-ri --no-rdoc
