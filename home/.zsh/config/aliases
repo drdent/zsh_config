@@ -44,10 +44,11 @@ alias n='rspec --next-failure'
 alias rc='bundle exec pry -r ./config/environment'
 
 # Docker
-alias dc='docker-compose'
 alias dm='docker-machine'
+
+alias dc='docker-compose'
 alias dce='docker-compose exec'
 alias dcu='docker-compose up'
 alias dcb='docker-compose build'
 alias dcr='docker-compose restart'
-alias dm='docker-machine'
+alias dcps='docker-compose ps | grep Up'
