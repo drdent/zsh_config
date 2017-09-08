@@ -46,7 +46,7 @@ __docker-compose_services_with_key() {
     __docker-compose_q config \
         | sed -n -e '/^services:/,/^[^ ]/p' \
         | sed -n 's/^  //p' \
-        | awk '/^[a-zA-Z0-9]/{print "\n"};{print $0;next;}' \
+        | awk '/^[a-zA-Z0-9]/{printf "\n"};{printf $0;next;}' \
         | grep " \+$1:" \
         | cut -d: -f1 \
         | grep -Ev "^(${already_selected})$"
