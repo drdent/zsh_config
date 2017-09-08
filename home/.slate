@@ -6,17 +6,17 @@ config resizePercentOf screenSize
 
 ### Work @office layout
 ## left screen (ScreenID 0)
-layout office 'Microsoft Outlook' corner top-left resize:screenSizeX/3*2;screenSizeY 0
-layout office 'Mattermost' corner top-right resize:screenSizeX/3;screenSizeY 0
+layout office 'Microsoft Outlook' corner top-left resize:screenSizeX/3*2;screenSizeY 1
+layout office 'Mattermost' corner top-right resize:screenSizeX/3;screenSizeY 1
 
 ## right screen (ScreenID 1)
 # left orientation
-layout office 'MacVim' corner top-left resize:screenSizeX/5*3;screenSizeY 1
-layout office 'RubyMine' corner top-left resize:screenSizeX/5*3;screenSizeY 1
-layout office 'Firefox' corner top-left resize:screenSizeX/5*3;screenSizeY 1
+layout office 'MacVim' corner top-left resize:screenSizeX/5*3;screenSizeY 0
+layout office 'RubyMine' corner top-left resize:screenSizeX/5*3;screenSizeY 0
+layout office 'Firefox' corner top-left resize:screenSizeX/5*3;screenSizeY 0
 
 # right orientation
-layout office 'iTerm2' corner top-right resize:screenSizeX/5*2;screenSizeY 1
+layout office 'iTerm2' corner top-right resize:screenSizeX/5*2;screenSizeY 0
 
 # Hotkeys
 bind 0:cmd;shift corner top-left  resize:screenSizeX;screenSizeY #full size
