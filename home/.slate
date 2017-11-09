@@ -4,19 +4,26 @@ config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
-### Work @office layout
-## left screen (ScreenID 0)
-layout office 'Microsoft Outlook' corner top-left resize:screenSizeX/3*2;screenSizeY 1
-layout office 'Mattermost' corner top-right resize:screenSizeX/3;screenSizeY 1
+# monitors
+alias externalMonitor 0
+alias resolutionExternalMonitor 2560x1440
+alias macbook 1
+alias resolutionMacbook 2880x1800
 
-## right screen (ScreenID 1)
+### Work @office layout
+## left screen
+layout office 'Microsoft Outlook' corner top-left resize:screenSizeX/3*2;screenSizeY macbook
+layout office 'Mattermost' corner top-right resize:screenSizeX/3;screenSizeY macbook
+
+## right screen
 # left orientation
-layout office 'MacVim' corner top-left resize:screenSizeX/5*3;screenSizeY 0
-layout office 'RubyMine' corner top-left resize:screenSizeX/5*3;screenSizeY 0
-layout office 'Firefox' corner top-left resize:screenSizeX/5*3;screenSizeY 0
+layout office 'MacVim' corner top-left resize:screenSizeX/5*3;screenSizeY externalMonitor
+layout office 'RubyMine' corner top-left resize:screenSizeX/5*3;screenSizeY externalMonitor
+layout office 'Firefox' corner top-left resize:screenSizeX/5*3;screenSizeY externalMonitor
+layout office 'Chrome' corner top-left resize:screenSizeX/5*3;screenSizeY externalMonitor
 
 # right orientation
-layout office 'iTerm2' corner top-right resize:screenSizeX/5*2;screenSizeY 0
+layout office 'iTerm2' corner top-right resize:screenSizeX/5*2;screenSizeY externalMonitor
 
 # Hotkeys
 bind 0:cmd;shift corner top-left  resize:screenSizeX;screenSizeY #full size
@@ -27,4 +34,4 @@ bind 4:cmd;shift corner top-right resize:screenSizeX/2;screenSizeY # half right
 bind 9:cmd;shift layout office #layout all
 
 # load default layout on startup
-default office resolutions:2880x1800;2560x1440
+default office resolutions:ResolutionExternalMonitor;resolutionMacbook
