@@ -13,9 +13,6 @@ export MANPAGER=more
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin/jshint:$PATH
 
-# Docker
-eval $(docker-machine env default)
-
 # Homebrew
 export HOMEBREW_INSTALL_BADGE="🛠"
 
