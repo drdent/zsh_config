@@ -5,12 +5,6 @@ update_tools() {
   echo "${ccyellow}Installing important gems...${ccend}"
   gem install bundler
 
-  echo "${ccyellow}Updating npm...${ccend}"
-  npm install -g npm
-
-  echo "${ccyellow}Installing important JS tools...${ccend}"
-  npm install -g npm-check-updates tslint typescript
-
   echo "${ccyellow}Update homebrew formulars...${ccend}"
   brew update
   brew upgrade
