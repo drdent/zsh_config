@@ -21,6 +21,7 @@ layout office 'MacVim' corner top-left resize:screenSizeX/5*3;screenSizeY extern
 layout office 'RubyMine' corner top-left resize:screenSizeX/5*3;screenSizeY externalMonitor
 layout office 'Firefox' corner top-left resize:screenSizeX/5*3;screenSizeY externalMonitor
 layout office 'Google Chrome' corner top-left resize:screenSizeX/5*3;screenSizeY externalMonitor
+layout office 'SQLPro for Postgres' corner top-left resize:screenSizeX/5*3;screenSizeY externalMonitor
 
 # right orientation
 layout office 'iTerm2' corner top-right resize:screenSizeX/5*2;screenSizeY externalMonitor
