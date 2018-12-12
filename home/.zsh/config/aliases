@@ -5,14 +5,13 @@ alias ..='cd ..'
 alias open_ports='lsof -i -P | grep -i LISTEN'
 
 #servers
-alias bamboo='ssh bamboo@bambooserver1.hh.blau.de'
-alias ivy='ssh ivy@ivy'
-alias team2='ssh deploy@team2.hh.blau.de'
-alias team5='ssh deploy@team5.hh.blau.de'
-alias team6='ssh deploy@team6'
-alias team13='ssh deploy@team13.hh.blau.de'
-alias tirpitz='ssh deploy@tirpitz.hh.blau.de'
-alias ci25='ssh deploy@ci25'
+alias sandbox1 ssh appsse@sandbox-1.devby.wlw.de
+alias sandbox2 ssh appsse@sandbox-2.devby.wlw.de
+alias sandbox3 ssh appsse@sandbox-3.devby.wlw.de
+alias sandbox4 ssh appsse@sandbox-4.devby.wlw.de
+alias sandbox5 ssh appsse@sandbox-5.devby.wlw.de
+alias sandbox6 ssh appsse@sandbox-6.devby.wlw.de
+alias staging ssh appsse@staging
 
 #git
 alias gpr='git pull'
