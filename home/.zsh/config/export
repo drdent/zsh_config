@@ -3,7 +3,6 @@ export LSCOLORS=cxfxexexDxexexDxDxcxcx
 export LESS="-mR" #Line-numbers and ASCII-Colors in less
 export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a iTerm"'
 export LC_ALL="en_US.UTF-8"
-export DEBUG=1
 
 # Show `time` output for any command that takes longer than 1 second of CPU time
 export REPORTTIME=1
