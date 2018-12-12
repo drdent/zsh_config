@@ -14,7 +14,7 @@ alias sandbox6 ssh appsse@sandbox-6.devby.wlw.de
 alias staging ssh appsse@staging
 
 #git
-alias gpr='git pull'
+alias gpr='git pull && git_prune'
 alias gs='git stash'
 alias gsp='git stash pop'
 alias grh='git reset --hard'
