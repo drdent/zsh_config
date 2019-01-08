@@ -5,13 +5,14 @@ alias ..='cd ..'
 alias open_ports='lsof -i -P | grep -i LISTEN'
 
 #servers
-alias sandbox1 ssh appsse@sandbox-1.devby.wlw.de
-alias sandbox2 ssh appsse@sandbox-2.devby.wlw.de
-alias sandbox3 ssh appsse@sandbox-3.devby.wlw.de
-alias sandbox4 ssh appsse@sandbox-4.devby.wlw.de
-alias sandbox5 ssh appsse@sandbox-5.devby.wlw.de
-alias sandbox6 ssh appsse@sandbox-6.devby.wlw.de
-alias staging ssh appsse@staging
+alias sandbox1='ssh appsse@sandbox-1.devby.wlw.de'
+alias sandbox2='ssh appsse@sandbox-2.devby.wlw.de'
+alias sandbox3='ssh appsse@sandbox-3.devby.wlw.de'
+alias sandbox4='ssh appsse@sandbox-4.devby.wlw.de'
+alias sandbox5='ssh appsse@sandbox-5.devby.wlw.de'
+alias sandbox6='ssh appsse@sandbox-6.devby.wlw.de'
+alias staging='ssh appsse@staging'
+alias logstash='ssh appsse@vlog01.backyard.wlwonline.de'
 
 #git
 alias gpr='git pull && git_prune'
