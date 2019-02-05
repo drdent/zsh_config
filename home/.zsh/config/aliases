@@ -12,7 +12,9 @@ alias sandbox4='ssh appsse@sandbox-4.devby.wlw.de'
 alias sandbox5='ssh appsse@sandbox-5.devby.wlw.de'
 alias sandbox6='ssh appsse@sandbox-6.devby.wlw.de'
 alias staging='ssh appsse@staging'
-alias logstash='ssh appsse@vlog01.backyard.wlwonline.de'
+alias vlog='ssh appsse@vlog01.backyard.wlwonline.de'
+alias logstash='vlog'
+alias vwork='ssh appsse@vwork-test01.backyard.wlwonline.de'
 
 #git
 alias gpr='git pull && git_prune'
