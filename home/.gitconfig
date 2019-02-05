@@ -13,7 +13,8 @@
   autocrlf = input
   untrackedCache = true
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	hooksPath = /Users/jaehrling/git/git_hooks
 [pull]
   rebase = true
 [rebase]
-	autoStash = true
+  autoStash = true
