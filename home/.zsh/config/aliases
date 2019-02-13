@@ -2,7 +2,37 @@
 alias ll='ls -la'
 alias ..='cd ..'
 
-alias open_ports='lsof -i -P | grep -i LISTEN'
+# Docker
+alias dm='docker-machine'
+alias dc='docker-compose -p dockercompose'
+alias dce='dc exec'
+alias dcu='dc up'
+alias dcb='dc build'
+alias dcr='dc restart'
+alias dcl='dc logs'
+alias dcps='dc ps | grep Up'
+alias dps='docker ps -f status=running --format "{{.Names}}" | sed s/dockercompose_//g | sed s/_1//g | sort'
+
+#git
+alias gpr='git pull && git_prune'
+alias gs='git stash'
+alias gsp='git stash pop'
+alias grh='git reset --hard'
+alias grc='git rebase --continue'
+alias grs='git rebase --skip'
+alias gra='git rebase --abort'
+
+#Maven
+alias mci='mvn clean install'
+alias mct='mvn clean test'
+alias mvn_hotdeploy='mvn clean package hotdeploy:hotdeploy'
+alias mvn_install='mvn clean install -Dmaven.test.skip=true -U -Djarsigner.skip=true'
+
+#rails
+alias rc='bundle exec pry -r ./config/environment'
+
+#rspec
+alias n='rspec --next-failure'
 
 #servers
 alias sandbox1='ssh appsse@sandbox-1.devby.wlw.de'
@@ -16,42 +46,16 @@ alias vlog='ssh appsse@vlog01.backyard.wlwonline.de'
 alias logstash='vlog'
 alias vwork='ssh appsse@vwork-test01.backyard.wlwonline.de'
 
-#git
-alias gpr='git pull && git_prune'
-alias gs='git stash'
-alias gsp='git stash pop'
-alias grh='git reset --hard'
-alias grc='git rebase --continue'
-alias grs='git rebase --skip'
-alias gra='git rebase --abort'
-
 #vim
 alias v='mvim'
 alias vi='mvim'
 alias vim='mvim'
 
-#Maven
-alias mci='mvn clean install'
-alias mct='mvn clean test'
-alias mvn_hotdeploy='mvn clean package hotdeploy:hotdeploy'
-alias mvn_install='mvn clean install -Dmaven.test.skip=true -U -Djarsigner.skip=true'
+# wlw
+alias wd='wlw-dc'
+alias we='wlw-exec'
+alias wl='wlw-logs'
 
+# misc
 alias serve='echo "SERVING `pwd` ON http://`ifconfig -v en0 inet | grep inet | cut -d " " -f 2`:9090/" && ruby -run -e httpd . -p9090'
-
-#rspec
-alias n='rspec --next-failure'
-
-#rails
-alias rc='bundle exec pry -r ./config/environment'
-
-# Docker
-alias dm='docker-machine'
-
-alias dc='docker-compose -p dockercompose'
-alias dce='dc exec'
-alias dcu='dc up'
-alias dcb='dc build'
-alias dcr='dc restart'
-alias dcl='dc logs'
-alias dcps='dc ps | grep Up'
-alias dps='docker ps -f status=running --format "{{.Names}}" | sed s/dockercompose_//g | sed s/_1//g | sort'
+alias open_ports='lsof -i -P | grep -i LISTEN'
