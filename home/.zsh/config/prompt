@@ -4,7 +4,7 @@ autoload -U colors && colors
 autoload -U promptinit
 promptinit
 
-zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' enable git
 
 # GIT
 zstyle ':vcs_info:git*:*' get-revision true
@@ -13,12 +13,6 @@ zstyle ':vcs_info:git*:*' unstagedstr "%{$fg[red]%}✘%{$reset_color%}"
 zstyle ':vcs_info:git*' formats "%b%u%m"
 zstyle ':vcs_info:git*' actionformats "%b%u%m"
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash git-status
-
-
-# SVN
-zstyle ':vcs_info:svn*' branchformat "%b"
-zstyle ':vcs_info:svn*' formats "%b%m"
-zstyle ':vcs_info:svn*' actionformats "%b%m"
 
 # Show remote ref name and number of commits ahead-of or behind
 # See http://eseth.org/2010/git-in-zsh
