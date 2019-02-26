@@ -46,9 +46,12 @@ git_prune() {
 
 gp() {
   BRANCH_NAME=$(git symbolic-ref --short HEAD)
-  git push --set-upstream origin $BRANCH_NAME
-  gpr
-  git push
+  if ! [[ $(git status | grep 'origin') ]]
+  then
+    echo 'setting up remote stream' && git push --set-upstream origin $BRANCH_NAME
+  fi  
+  echo 'pull changes...' && gpr
+  echo 'push changes' && git push
 }
 
 # bundle
