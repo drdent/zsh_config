@@ -54,7 +54,7 @@ alias vim='mvim'
 # wlw
 alias wd='wlw-dc'
 alias we='wlw-exec'
-alias wl='wlw-logs'
+alias wl='wlw-log'
 
 # misc
 alias open_ports='lsof -i -P | grep -i LISTEN'
