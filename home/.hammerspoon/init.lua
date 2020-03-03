@@ -13,7 +13,7 @@ spoon.ClipboardTool:start()
 ---- ColorPicker
 hs.loadSpoon("ColorPicker")
 local colorPicker_hotkeys = {
-  show = {{"cmd", "shift"}, "c"}
+  show = {{"cmd", "shift"}, "ß"}
 }
 spoon.ColorPicker:bindHotkeys(colorPicker_hotkeys)
 spoon.ColorPicker.show_in_menubar = false
@@ -66,11 +66,10 @@ hs.hotkey.bind({"cmd", "shift"}, "4", function()
   focusedWindow:move({x = secondaryScreenFrame.x + secondaryScreenFrame.w / 3, y = 0, w = (secondaryScreenFrame.w / 3), h = secondaryScreenFrame.h}, secondaryDisplay)
 end)
 
-hs.hotkey.bind({"cmd", "shift"}, "7", function()
-  local screen = hs.screen.find(secondaryDisplayname)
-  local screens = hs.screen.allScreens()
-  local window = hs.window.focusedWindow()
-  hs.alert(window)
+-- full size on current window
+hs.hotkey.bind({"cmd", "shift"}, "0", function()
+  local focusedWindow = hs.window.focusedWindow()
+  focusedWindow:move({x = 0, y = 0, w = 1, h = 1})
 end)
 -- Standard layout
 hs.hotkey.bind({"cmd", "shift"}, "9", function()
