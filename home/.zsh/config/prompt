@@ -88,7 +88,7 @@ function lang_prompt_info() {
   if [[ -e Gemfile || -e Rakefile ]]; then
     echo "Ruby $(rbenv version | sed 's/[ \t].*$//')"
   elif [[ -d node_modules ]]; then
-    echo "Node $(nvm version | sed 's/v//')"
+    echo "Node $(node --version | sed 's/v//')"
   fi
 }
 
