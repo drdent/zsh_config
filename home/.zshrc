@@ -74,4 +74,3 @@ for f in ~/.zsh/private/*; do source $f; done
 
 fpath=(~/.zsh/completion $fpath)
 
-eval $(docker-machine env wlw-andre2)
