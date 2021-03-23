@@ -30,7 +30,6 @@ spoon.DeepLTranslate.show_in_menubar = false
 ---- Screen / Window movement
 local primaryDisplayname = "Color LCD"
 local primaryDisplay = hs.screen.find(primaryDisplayname)
-local primaryScreenFrame = primaryDisplay:frame()
 local secondaryDisplayname = "DELL U2715H"
 local secondaryDisplayMode = { w = 2560, h = 1440 }
 local secondaryDisplay = hs.screen.find(secondaryDisplayname)
