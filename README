@@ -1,1 +1,7 @@
-My ZSH Config - to go
+## Setup
+brew install zsh
+gem install homesick
+homesick clone drdent/zsh_config
+homesick symlink zsh_config
+iterm profil command /usr/local/bin/zsh
+cd ~/.homesick/repos/drdent/zsh_config && sh relink_dotfiles.sh
