@@ -3,8 +3,6 @@
 # ----------------------------------------------------------------
 
 # crazy tab completion
-#autoload -U compinit
-#compinit
 autoload -Uz compinit && compinit -i
 
 # crazy mad shit
