@@ -1,0 +1,9 @@
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# useful for rails projects with bin files within /bin
+# instead of use bin/rails, you can use rails
+export PATH="./bin:$PATH"
+
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"
