@@ -4,7 +4,6 @@ update_tools() {
 
   echo "${ccyellow}Installing important gems...${ccend}"
   gem install bundler
-  gem install visable_cli
 
   echo "${ccyellow}Update homebrew formulars...${ccend}"
   brew update
