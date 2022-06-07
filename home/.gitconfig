@@ -8,7 +8,7 @@
 	st = status
 	ci = commit -v
 [push]
-	default = simple
+	default = current
 [core]
   autocrlf = input
   untrackedCache = true
