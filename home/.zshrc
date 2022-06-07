@@ -74,11 +74,6 @@ for f in ~/.zsh/private/*; do source $f; done
 
 fpath=(~/.zsh/completion $fpath)
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -91,7 +86,6 @@ if [ -f '/Users/andrejahrling/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 [ -f /Users/andrejahrling/fubectl/fubectl.source ] && source /Users/andrejahrling/fubectl/fubectl.source
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 
 source /Users/andrejahrling/.config/broot/launcher/bash/br
 
