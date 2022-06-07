@@ -40,10 +40,4 @@ ehthumbs.db
 Icon
 Thumbs.db
 
-# VIM #
-#######
-*.swp
-
-# Ruby #
-########
-.rvmrc
+.garden/
