@@ -92,5 +92,8 @@ if [ -f '/Users/andrejahrling/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+source /Users/andrejahrling/.config/broot/launcher/bash/br
+
 # asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
