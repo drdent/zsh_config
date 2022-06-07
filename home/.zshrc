@@ -99,4 +99,3 @@ source /Users/andrejahrling/.config/broot/launcher/bash/br
 . /usr/local/opt/asdf/libexec/asdf.sh
 
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-export PATH="/usr/local/opt/openssl@3/bin:$PATH"
