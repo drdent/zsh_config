@@ -89,3 +89,6 @@ if [ -f '/Users/andrejahrling/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 
 # fubectl
 [ -f /Users/andrejahrling/fubectl/fubectl.source ] && source /Users/andrejahrling/fubectl/fubectl.source
+
+# asdf
+. /usr/local/opt/asdf/libexec/asdf.sh
