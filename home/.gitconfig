@@ -14,6 +14,7 @@
   untrackedCache = true
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	hooksPath = /Users/jaehrling/git/git_hooks
+	excludesfile = /Users/andrejahrling/.gitignore_global
 [pull]
   rebase = true
 [rebase]
