@@ -90,5 +90,7 @@ if [ -f '/Users/andrejahrling/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 # fubectl
 [ -f /Users/andrejahrling/fubectl/fubectl.source ] && source /Users/andrejahrling/fubectl/fubectl.source
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 # asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
