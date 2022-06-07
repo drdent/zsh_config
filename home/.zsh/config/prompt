@@ -93,3 +93,6 @@ function lang_prompt_info() {
 }
 
 RPROMPT='%{$fg_no_bold[cyan]%}$(lang_prompt_info)%{$reset_color%}'
+
+# Add timestamp for each line
+RPROMPT=$RPROMPT' [%D{%H:%M:%S}]'
