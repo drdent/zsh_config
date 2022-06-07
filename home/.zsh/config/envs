@@ -1,0 +1,24 @@
+export CLICOLOR=1
+export LSCOLORS=cxfxexexDxexexDxDxcxcx
+export LESS="-mR" #Line-numbers and ASCII-Colors in less
+export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a iTerm"'
+export LC_ALL="en_US.UTF-8"
+export REPORTTIME=1 # Show `time` output for any command that takes longer than 1 second of CPU time
+export MANPAGER=more # Manpager with ascii-sequences
+
+# Homebrew
+export HOMEBREW_INSTALL_BADGE="🛠"
+
+# autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+#rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+
+# Ruby
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+# OpenSSL
+export LDFLAGS="-L/usr/local/opt/openssl@3/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@3/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@3/lib/pkgconfig"
