@@ -63,3 +63,8 @@ b() {
 share() {
   echo "SERVING `pwd` ON http://`ifconfig -v en4 inet | grep inet | cut -d " " -f 2`:9090/" && ruby -r webrick -e "s = WEBrick::HTTPServer.new(:Port => 9090, :DocumentRoot => Dir.pwd); trap(\"INT\") { s.shutdown }; s.start"  
 }
+
+# run rubocop only for changed files
+rubocop() {
+  git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs bin/rubocop "$@"
+}
