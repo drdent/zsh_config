@@ -41,3 +41,9 @@ alias vim='mvim'
 
 # misc
 alias open_ports='lsof -i -P | grep -i LISTEN'
+
+# google cloud
+alias kex_console='kex bash -c ". /auth/credentials && bundle exec rails c"'
+alias kdev="export KUBECONFIG=~/.kube/config.development"
+alias kprod="export KUBECONFIG=~/.kube/config.production"
+alias kstaging="export KUBECONFIG=~/.kube/config.staging"
