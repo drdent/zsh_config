@@ -1,6 +1,7 @@
 #bash
 alias ll='ls -la'
 alias ..='cd ..'
+alias bat='bat --paging=never'
 
 # Docker
 alias dm='docker-machine'
