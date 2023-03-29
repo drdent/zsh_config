@@ -34,27 +34,10 @@ alias rc='bundle exec pry -r ./config/environment'
 #rspec
 alias n='rspec --next-failure'
 
-#servers
-alias sandbox1='ssh appsse@sandbox-1.devby.wlw.de'
-alias sandbox2='ssh appsse@sandbox-2.devby.wlw.de'
-alias sandbox3='ssh appsse@sandbox-3.devby.wlw.de'
-alias sandbox4='ssh appsse@sandbox-4.devby.wlw.de'
-alias sandbox5='ssh appsse@sandbox-5.devby.wlw.de'
-alias sandbox6='ssh appsse@sandbox-6.devby.wlw.de'
-alias staging='ssh appsse@staging'
-alias vlog='ssh appsse@vlog01.backyard.wlwonline.de'
-alias logstash='vlog'
-alias vwork='ssh appsse@vwork-test01.backyard.wlwonline.de'
-
 #vim
 alias v='mvim'
 alias vi='mvim'
 alias vim='mvim'
-
-# wlw
-alias wd='wlw-dc'
-alias we='wlw-exec'
-alias wl='wlw-log'
 
 # misc
 alias open_ports='lsof -i -P | grep -i LISTEN'
