@@ -9,4 +9,7 @@ update_tools() {
   brew update
   brew upgrade
   brew cleanup
+
+  echo "${ccyellow}Update gcloud...${ccend}"
+  gcloud components update
 }
