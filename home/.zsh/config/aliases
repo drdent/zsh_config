@@ -15,7 +15,7 @@ alias dcps='dc ps | grep Up'
 alias dps='docker ps -f status=running --format "{{.Names}}" | sed s/dockercompose_//g | sed s/_1//g | sort'
 
 #git
-alias gpr='git pull && git_prune'
+alias gpr='rm -rf .git/refs/remotes/origin/Codejam && git pull && git_prune'
 alias gs='git stash'
 alias gsp='git stash pop'
 alias grh='git reset --hard'
