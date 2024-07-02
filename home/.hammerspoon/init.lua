@@ -2,22 +2,13 @@
 local log = hs.logger.new('zsh_config','debug')
 
 ---- ClipboardTool
-hs.loadSpoon("ClipboardTool")
+--hs.loadSpoon("ClipboardTool")
 local cliboardtool_hotkeys = {
   show_clipboard = {{"cmd", "shift"}, "v"}
 }
-spoon.ClipboardTool:bindHotkeys(cliboardtool_hotkeys)
-spoon.ClipboardTool.show_in_menubar = false
-spoon.ClipboardTool:start()
-
----- ColorPicker
-hs.loadSpoon("ColorPicker")
-local colorPicker_hotkeys = {
-  show = {{"cmd", "shift"}, "ß"}
-}
-spoon.ColorPicker:bindHotkeys(colorPicker_hotkeys)
-spoon.ColorPicker.show_in_menubar = false
-spoon.ColorPicker:start()
+--spoon.ClipboardTool:bindHotkeys(cliboardtool_hotkeys)
+--spoon.ClipboardTool.show_in_menubar = false
+--spoon.ClipboardTool:start()
 
 ---- DeepL Translator
 hs.loadSpoon("DeepLTranslate")

@@ -40,6 +40,11 @@ obj.max_entry_size = 4990
 --- Whether to check the maximum size of an entry. Defaults to `false`.
 obj.max_size = getSetting('max_size', false)
 
+--- ClipboardTool.show_copied_alert
+--- Variable
+--- If `true`, show an alert when a new item is added to the history, i.e. has been copied.
+obj.show_copied_alert = true
+
 --- ClipboardTool.honor_ignoredidentifiers
 --- Variable
 --- If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`
@@ -57,7 +62,10 @@ obj.logger = hs.logger.new('ClipboardTool')
 
 --- ClipboardTool.ignoredIdentifiers
 --- Variable
---- Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):
+--- Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.
+---
+--- Notes:
+---  * Default value (don't modify unless you know what you are doing):
 --- ```
 ---  {
 ---     ["de.petermaurer.TransientPasteboardType"] = true, -- Transient : Textpander, TextExpander, Butler
@@ -91,8 +99,13 @@ obj.show_in_menubar = true
 
 --- ClipboardTool.menubar_title
 --- Variable
---- String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `"\u{1f4ce}"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)
-obj.menubar_title   = "\u{1f4ce}"
+--- String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `"\u{1f4cb}"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)
+obj.menubar_title   = "\u{1f4cb}"
+
+--- ClipboardTool.display_max_length
+--- Variable
+--- Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.
+obj.display_max_length = 200
 
 ----------------------------------------------------------------------
 
@@ -119,6 +132,9 @@ end
 --- ClipboardTool:togglePasteOnSelect()
 --- Method
 --- Toggle the value of `ClipboardTool.paste_on_select`
+---
+--- Parameters:
+---  * None
 function obj:togglePasteOnSelect()
    self.paste_on_select = setSetting("paste_on_select", not self.paste_on_select)
    hs.notify.show("ClipboardTool", "Paste-on-select is now " .. (self.paste_on_select and "enabled" or "disabled"), "")
@@ -144,7 +160,11 @@ function obj:_processSelectedItem(value)
       if value.action and actions[value.action] then
          actions[value.action](value)
       elseif value.text then
-         pasteboard.setContents(value.text)
+         if value.type == "text" then
+            pasteboard.setContents(value.data)
+         elseif value.type == "image" then
+            pasteboard.writeObjects(hs.image.imageFromURL(value.data))
+         end
 --         self:pasteboardToClipboard(value.text)
          if (self.paste_on_select) then
             hs.eventtap.keyStroke({"cmd"}, "v")
@@ -157,6 +177,9 @@ end
 --- ClipboardTool:clearAll()
 --- Method
 --- Clears the clipboard and history
+---
+--- Parameters:
+---  * None
 function obj:clearAll()
    pasteboard.clearContents()
    clipboard_history = {}
@@ -167,6 +190,9 @@ end
 --- ClipboardTool:clearLastItem()
 --- Method
 --- Clears the last added to the history
+---
+--- Parameters:
+---  * None
 function obj:clearLastItem()
    table.remove(clipboard_history, 1)
    _persistHistory()
@@ -178,8 +204,8 @@ function obj:dedupe_and_resize(list)
    local res={}
    local hashes={}
    for i,v in ipairs(list) do
-      if #res < self.hist_size then
-         local hash=hashfn(v)
+      if res < self.hist_size then
+         local hash=hashfn(v.content)
          if (not self.deduplicate) or (not hashes[hash]) then
             table.insert(res, v)
             hashes[hash]=true
@@ -198,8 +224,8 @@ end
 ---
 --- Returns:
 ---  * None
-function obj:pasteboardToClipboard(item)
-   table.insert(clipboard_history, 1, item)
+function obj:pasteboardToClipboard(item_type, item)
+   table.insert(clipboard_history, 1, {type=item_type, content=item})
    clipboard_history = self:dedupe_and_resize(clipboard_history)
    _persistHistory() -- updates the saved history
 end
@@ -216,7 +242,7 @@ function obj:pasteAllWithDelimiter(row, delimiter)
 --      pasteboard.setContents(entry)
 --      os.execute("sleep 0.2")
 --      hs.eventtap.keyStroke({"cmd"}, "v")
-       hs.eventtap.keyStrokes(entry)
+       hs.eventtap.keyStrokes(entry.content)
 --      os.execute("sleep 0.2")
       hs.eventtap.keyStrokes(delimiter)
 --      os.execute("sleep 0.2")
@@ -274,11 +300,19 @@ function obj:_showContextMenu(row)
 end
 
 -- Internal function - fill in the chooser options, including the control options
-function obj:_populateChooser()
+function obj:_populateChooser(query)
+   query = query:lower()
    menuData = {}
    for k,v in pairs(clipboard_history) do
-      if (type(v) == "string") then
-         table.insert(menuData, {text=v, subText=""})
+      if (v.type == "text" and (query == "" or v.content:lower():find(query))) then
+         table.insert(menuData, { text = string.sub(v.content, 0, obj.display_max_length),
+                                  data = v.content,
+                                  type = v.type})
+      elseif (v.type == "image") then
+         table.insert(menuData, { text = "《Image data》",
+                                  type = v.type,
+                                  data = v.content,
+                                  image = hs.image.imageFromURL(v.content)})
       end
    end
    if #menuData == 0 then
@@ -308,6 +342,9 @@ end
 --- ClipboardTool:shouldBeStored()
 --- Method
 --- Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`
+---
+--- Parameters:
+---  * None
 function obj:shouldBeStored()
    -- Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua
    local goAhead = true
@@ -345,6 +382,9 @@ end
 --- ClipboardTool:checkAndStorePasteboard()
 --- Method
 --- If the pasteboard has changed, we add the current item to our history and update the counter
+---
+--- Parameters:
+---  * None
 function obj:checkAndStorePasteboard()
    now = pasteboard.changeCount()
    if (now > last_change) then
@@ -352,7 +392,12 @@ function obj:checkAndStorePasteboard()
          current_clipboard = pasteboard.getContents()
          self.logger.df("current_clipboard = %s", tostring(current_clipboard))
          if (current_clipboard == nil) and (pasteboard.readImage() ~= nil) then
-            self.logger.df("Images not yet supported - ignoring image contents in clipboard")
+            current_clipboard = pasteboard.readImage()
+            self:pasteboardToClipboard("image", current_clipboard:encodeAsURLString())
+            if self.show_copied_alert then
+                hs.alert.show("Copied image")
+            end
+            self.logger.df("Adding image (hashed) %s to clipboard history clipboard", hashfn(current_clipboard:encodeAsURLString()))
          elseif current_clipboard ~= nil then
            local size = #current_clipboard
            if obj.max_size and size > obj.max_entry_size then
@@ -363,9 +408,11 @@ function obj:checkAndStorePasteboard()
                 size = #current_clipboard
                 end
             end
-            hs.alert.show("Copied " .. size .. " chars")
+            if self.show_copied_alert then
+                hs.alert.show("Copied " .. size .. " chars")
+            end
             self.logger.df("Adding %s to clipboard history", current_clipboard)
-            self:pasteboardToClipboard(current_clipboard)
+            self:pasteboardToClipboard("text", current_clipboard)
          else
             self.logger.df("Ignoring nil clipboard content")
          end
@@ -379,12 +426,18 @@ end
 --- ClipboardTool:start()
 --- Method
 --- Start the clipboard history collector
+---
+--- Parameters:
+---  * None
 function obj:start()
    obj.logger.level = 0
    clipboard_history = self:dedupe_and_resize(getSetting("items", {})) -- If no history is saved on the system, create an empty history
    last_change = pasteboard.changeCount() -- keeps track of how many times the pasteboard owner has changed // Indicates a new copy has been made
    self.selectorobj = hs.chooser.new(hs.fnutils.partial(self._processSelectedItem, self))
-   self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self))
+   self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self, ""))
+   self.selectorobj:queryChangedCallback(function(query)
+      self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self, query))
+   end)
    self.selectorobj:rightClickCallback(hs.fnutils.partial(self._showContextMenu, self))
    --Checks for changes on the pasteboard. Is it possible to replace with eventtap?
    self.timer = hs.timer.new(self.frequency, hs.fnutils.partial(self.checkAndStorePasteboard, self))
@@ -399,6 +452,9 @@ end
 --- ClipboardTool:showClipboard()
 --- Method
 --- Display the current clipboard list in a chooser
+---
+--- Parameters:
+---  * None
 function obj:showClipboard()
    if self.selectorobj ~= nil then
       self.selectorobj:refreshChoicesCallback()
@@ -412,6 +468,9 @@ end
 --- ClipboardTool:toggleClipboard()
 --- Method
 --- Show/hide the clipboard list, depending on its current state
+---
+--- Parameters:
+---  * None
 function obj:toggleClipboard()
    if self.selectorobj:isVisible() then
       self.selectorobj:hide()
@@ -438,4 +497,3 @@ function obj:bindHotkeys(mapping)
 end
 
 return obj
-
