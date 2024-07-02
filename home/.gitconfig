@@ -3,7 +3,7 @@
 [user]
 	email = andre.jaehrling@avocadostore.de
 	name = André Jährling
-	signingkey = 8B48D246075F9D5C
+	signingkey = 0AF6205911E01E8D
 [alias]
 	co = checkout
 	st = status
