@@ -90,7 +90,7 @@ source /Users/andrejahrling/.config/broot/launcher/bash/br
 # asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
 
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
