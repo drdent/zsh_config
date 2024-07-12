@@ -10,14 +10,6 @@ local cliboardtool_hotkeys = {
 --spoon.ClipboardTool.show_in_menubar = false
 --spoon.ClipboardTool:start()
 
----- DeepL Translator
-hs.loadSpoon("DeepLTranslate")
-local deep_l_translate_hotkeys = {
-  translate = {{"cmd", "shift"}, "ü"}
-}
-spoon.DeepLTranslate:bindHotkeys(deep_l_translate_hotkeys)
-spoon.DeepLTranslate.show_in_menubar = false
-
 ---- Screen / Window movement
 local primaryDisplayname = "Color LCD"
 local primaryDisplay = hs.screen.find(primaryDisplayname)
