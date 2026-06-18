@@ -23,12 +23,6 @@ alias grc='git rebase --continue'
 alias grs='git rebase --skip'
 alias gra='git rebase --abort'
 
-#Maven
-alias mci='mvn clean install'
-alias mct='mvn clean test'
-alias mvn_hotdeploy='mvn clean package hotdeploy:hotdeploy'
-alias mvn_install='mvn clean install -Dmaven.test.skip=true -U -Djarsigner.skip=true'
-
 #rails
 alias rc='bundle exec pry -r ./config/environment'
 
@@ -42,9 +36,3 @@ alias vim='mvim'
 
 # misc
 alias open_ports='lsof -i -P | grep -i LISTEN'
-
-# google cloud
-alias kex_console='kex bash -c "eval $(bundle exec ruby scripts/secret_manager_retrieve_credentials.rb) && bin/rails c"'
-alias kdev="export KUBECONFIG=~/.kube/config.development"
-alias kprod="export KUBECONFIG=~/.kube/config.production"
-alias kstaging="export KUBECONFIG=~/.kube/config.staging"
