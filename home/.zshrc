@@ -79,8 +79,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 source /Users/andrejahrling/.config/broot/launcher/bash/br
 
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 export GPG_TTY=$(tty)
