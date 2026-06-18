@@ -16,12 +16,13 @@
   untrackedCache = true
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	hooksPath = /Users/jaehrling/git/git_hooks
-	excludesfile = /Users/andrejahrling/.gitignore_global
+	excludesFile = /Users/andrejahrling/.gitignore
 [pull]
   rebase = true
 [rebase]
   autoStash = true
+	autosquash = true
 [init]
 	defaultBranch = main
 [commit]
-	gpgsign = true
+	gpgsign = false

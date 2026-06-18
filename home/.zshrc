@@ -74,24 +74,23 @@ fpath=(~/.zsh/completion $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/andrejahrling/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrejahrling/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/andrejahrling/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andrejahrling/google-cloud-sdk/completion.zsh.inc'; fi
-
-# fubectl
-[ -f /Users/andrejahrling/fubectl/fubectl.source ] && source /Users/andrejahrling/fubectl/fubectl.source
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source /Users/andrejahrling/.config/broot/launcher/bash/br
-
-# asdf
-. /usr/local/opt/asdf/libexec/asdf.sh
 
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 export GPG_TTY=$(tty)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/andrejahrling/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andrejahrling/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/andrejahrling/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andrejahrling/google-cloud-sdk/completion.zsh.inc'; fi
+# fubectl
+[ -f /Users/andrejahrling/fubectl/fubectl.source ] && source /Users/andrejahrling/fubectl/fubectl.source
+
+source <(fzf --zsh)
