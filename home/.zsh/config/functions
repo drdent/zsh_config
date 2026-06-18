@@ -51,7 +51,7 @@ gp() {
 
 # bundle
 b() {
-  bundle "$@"
+  bundle install "$@"
 }
 
 # share local files via network
